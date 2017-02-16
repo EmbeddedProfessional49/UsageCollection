@@ -1,0 +1,81 @@
+InitialSetup::
+    $ git config --global user.name "UserName"
+    $ git config --global user.mail "UserMail"
+
+CreateLocal Repo
+    $ git init
+
+CheckOut Repo::
+    $ git clone RepoName
+
+FileOperations::
+    $ git add FileName
+    $ git add --all
+    $ git add *
+    $ git remove FileName
+
+Commit::
+    $ git commit -m "Commit Details"
+    $ git commit -a
+
+Push::
+    $ git push -u RemoteName LocalBranch:RemoteBranch
+        - $ git push -u origin LocalBranch:RemoteBranch
+
+StatusLocalCopy::
+    $ git status
+    $ git diff
+    $ git diff FileName
+    
+ConnectToRemoteRepo::
+    $ git remote add origin <server>
+    $ git remote -v
+    
+BranchOperations::
+    $ git branch -a
+        - list out all local branch
+    $ git checkout -b BranchName
+        - Create new local branch
+    $ git checkout BranchName
+        - switch to BranchName.
+    $ git branch -d BranchName
+        - delete local branch.
+    $ git push --all origin
+        - push all local branch to remote repo.
+    $ git push -u origin LocalBranchName:RemoteBranchName
+        - Push local branch to remote repository.
+    $ git push origin :BranchName
+        - Delete a branch on your remote repository.
+
+UpdateFromRemoteRepo::
+    $ git fetch --all
+        - fetch all remote branch details.
+    $ git merge BranchName
+        - To merge a different BranchName into your active branch.
+    $ git diff
+        - View all the merge conflicts.
+    $ git diff --base FileName
+        - View the conflicts against the base file.
+    $ git diff SourceBranch TargetBranch
+        - Preview changes, before merging.
+    $ git add <filename>
+        - add after manully resolved.
+
+Tags::
+    $ git tag -a VersionDetails -m "Version Commit Details"
+    $ git push -u origin VersionDetails
+    $ git push --tags origin
+
+UndoLocalChanges::
+    $ git checkout FileName
+    - Instead, to drop all your local changes and commits, fetch the latest history from the server and point your local master branch at it, do this:
+        $ git fetch origin
+        $ git reset --hard origin/master   
+    
+Submodule::
+    $ git submodule add https://github.com/username/sub_repo.git
+    - If that's the first time you checkout a repo you need to use --init first.
+        $ git submodule update --init --recursive
+    $ git submodule update --recursive --remote
+    $ git submodule update --recursive or git pull --recurse-submodules
+    
